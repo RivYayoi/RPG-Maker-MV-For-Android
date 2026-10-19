@@ -1,6 +1,6 @@
 # RPG Maker MV Editor for Android — Native Java Port
 
-**[简体中文](README.md)** | **[English](README_EN.md)**
+**[简体中文](README_CH.md)** | **[English](README.md)**
 
 > A native-Java Android port of the **RPG Maker MV editor** (the authoring tool),
 > reproducing the PC editor's Main Window and its RPG Maker MV project format.
