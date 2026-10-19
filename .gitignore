@@ -1,0 +1,44 @@
+# ---------------------------------------------------------------------------
+# RPG Maker MV Editor for Android -- native Java port
+# ---------------------------------------------------------------------------
+# Build outputs
+.gradle/
+**/.gradle/
+build/
+**/build/
+app-java/local.properties
+local.properties
+
+# The Android SDK and the tools we downloaded (multi-GB, re-fetched with
+# sdkmanager). Not source.
+/android-sdk/
+/tools/
+
+# RPG Maker MV's own assets (engine JS + art, (c) Kadokawa). They are NOT
+# redistributed here -- run scripts/fetch-template.mjs to copy them out of
+# your local RPG Maker MV installation before building.
+# (exclude the CONTENTS, not the directory, so .gitkeep survives the clone)
+/app-java/app/src/main/assets/template/*
+!/app-java/app/src/main/assets/template/.gitkeep
+
+# Built APK (embeds the MV assets above).
+/dist/*.apk
+
+# Legacy WebView prototype -- superseded by app-java/, kept only locally.
+# NOTE: anchored with a leading slash on purpose. A bare "app/" would also
+# match app-java/app/ and silently exclude the whole source tree.
+/app/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

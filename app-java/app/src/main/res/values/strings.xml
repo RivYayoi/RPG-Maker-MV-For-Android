@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RPG Maker MV Editor</string>
+
+    <!-- PC [File] menu -->
+    <string name="menu_file">File</string>
+    <string name="menu_edit">Edit</string>
+    <string name="menu_mode">Mode</string>
+    <string name="menu_draw">Draw</string>
+    <string name="menu_scale">Scale</string>
+    <string name="menu_tool">Tools</string>
+    <string name="menu_game">Game</string>
+    <string name="menu_help">Help</string>
+
+    <string name="file_new_project">New Project</string>
+    <string name="file_open_project">Open Project</string>
+    <string name="file_close_project">Close Project</string>
+    <string name="file_save_project">Save Project</string>
+    <string name="file_deployment">Deployment</string>
+    <string name="file_exit">Exit</string>
+
+    <string name="edit_undo">Undo</string>
+    <string name="edit_redo">Redo</string>
+    <string name="edit_cut">Cut</string>
+    <string name="edit_copy">Copy</string>
+    <string name="edit_paste">Paste</string>
+    <string name="edit_delete">Delete</string>
+
+    <string name="mode_map">Map</string>
+    <string name="mode_event">Event</string>
+    <string name="mode_region">Region</string>
+
+    <string name="scale_zoom_in">Zoom In</string>
+    <string name="scale_zoom_out">Zoom Out</string>
+    <string name="scale_actual">Actual Size</string>
+    <string name="scale_fit">Fit to Map</string>
+
+    <string name="tool_database">Database</string>
+    <string name="tool_plugin">Plugin Manager</string>
+    <string name="tool_resource">Resource Manager</string>
+    <string name="tool_sound">Sound Test</string>
+    <string name="tool_event_search">Event Searcher</string>
+    <string name="tool_chargen">Character Generator</string>
+
+    <string name="game_playtest">Playtest</string>
+    <string name="game_open_folder">Open Folder</string>
+
+    <string name="help_contents">Contents</string>
+    <string name="help_about">About</string>
+
+    <string name="projects_title">Projects</string>
+    <string name="no_projects">No projects yet</string>
+    <string name="no_projects_hint">Tap + to create an RPG Maker MV project</string>
+    <string name="storage_note">Storage: %1$s</string>
+
+    <string name="map">Map</string>
+    <string name="events">Events</string>
+    <string name="grid">Grid</string>
+    <string name="fit">Fit</string>
+    <string name="log">Log</string>
+    <string name="save">Save</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="done">Done</string>
+    <string name="create">Create</string>
+    <string name="rename">Rename</string>
+    <string name="add_map">New Map</string>
+    <string name="map_properties">Map Properties</string>
+
+    <string name="layer">Layer</string>
+    <string name="autotiles">Auto Tiles</string>
+    <string name="shapes">Shapes</string>
+    <string name="eraser">Eraser</string>
+
+    <string name="about_body">RPG Maker MV Editor — native Android port (Java).\n\nProject format is byte-compatible with the desktop editor: tileId algebra and map data indexing verified against the editor\'s own shipped engine source (rpg_core.js:5273-5302, rpg_objects.js:5929).</string>
+<!-- Tool > Database -->
+    <string name="db_title">Database</string>
+    <string name="db_add">Add</string>
+    <string name="db_open_failed">Could not open project: %1$s</string>
+    <string name="db_saved">Saved %1$s</string>
+    <string name="db_save_failed">Save failed: %1$s</string>
+    <string name="db_missing_file">%1$s is not present in this project</string>
+    <string name="db_records">%1$d records</string>
+    <string name="db_no_records">%1$s has no records yet — tap Add</string>
+    <string name="db_empty_slot">This slot is empty (null)</string>
+    <string name="db_delete_title">Delete record?</string>
+    <string name="db_delete_msg">Slot %1$d will be stored as null. Records that reference this id are left untouched, exactly as the PC editor does.</string>
+    <string name="db_unexpected_record">%1$s holds an unexpected value at this slot</string>
+    <string name="db_new_record">NewRecord</string>
+
+    <!-- Entity page names, in the order of the Database window\'s tabs. -->
+    <string-array name="db_entity_labels">
+        <item>Actors</item>
+        <item>Classes</item>
+        <item>Skills</item>
+        <item>Items</item>
+        <item>Weapons</item>
+        <item>Armors</item>
+        <item>Enemies</item>
+        <item>Troops</item>
+        <item>States</item>
+        <item>Animations</item>
+        <item>Tilesets</item>
+        <item>Common Events</item>
+        <item>System</item>
+        <item>Types</item>
+        <item>Terms</item>
+    </string-array>
+
+    <!-- Tool > Plugin Manager -->
+    <string name="plug_title">Plugin Manager</string>
+    <string name="plug_hint">Toggle to enable/disable, tap a row for details.</string>
+    <string name="plug_count">%1$d plugins</string>
+    <string name="plug_missing">%1$s was not found in this project</string>
+    <string name="plug_unparsable">%1$s has no recognisable plugin array</string>
+    <string name="plug_read_failed">Could not read %1$s</string>
+    <string name="plug_saved">plugins.js updated</string>
+    <string name="plug_save_failed">Could not write plugins.js: %1$s</string>
+    <string name="plug_unregistered">not registered</string>
+    <string name="plug_unregistered_note">This file exists in js/plugins/ but is not listed in js/plugins.js, so the game never loads it.</string>
+    <string name="plug_register">Register</string>
+    <string name="plug_registered">Registered %1$s</string>
+    <string name="plug_name">Name</string>
+    <string name="plug_author">Author</string>
+    <string name="plug_version">Version</string>
+    <string name="plug_description">Description</string>
+    <string name="plug_enabled">Enabled</string>
+    <string name="plug_enable_label">Enable plugin</string>
+    <string name="plug_version_prefix">v%1$s</string>
+    <string name="plug_path_label">Path: %1$s</string>
+    <string name="plug_params_count">Parameters: %1$d keys (not editable in this port)</string>
+    <string name="plug_no_params">No parameters</string>
+
+    <!-- Tool > Resource Manager -->
+    <string name="res_title">Resource Manager</string>
+    <string name="res_root_label">Project: %1$s</string>
+    <string name="res_readonly">read only — editing assets is not supported in this port</string>
+    <string name="res_absent">(not present)</string>
+    <string name="res_missing_dir">%1$s does not exist in this project</string>
+    <string name="res_no_preview">No preview for %1$s</string>
+    <string name="res_decode_failed">Could not decode %1$s</string>
+    <string name="res_preview_hint">%1$s  ·  %2$s  —  tap to close</string>
+</resources>

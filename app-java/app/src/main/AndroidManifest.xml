@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:hardwareAccelerated="true"
+        android:theme="@style/Theme.Rmmv"
+        android:supportsRtl="true">
+
+        <!--
+          NO android.webkit.WebView usage anywhere in this build.
+          All UI is native Android Views (View / Canvas / RecyclerView).
+        -->
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout|uiMode|density|fontScale"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.MapEditorActivity"
+            android:exported="false"
+            android:configChanges="keyboardHidden|keyboard|uiMode"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="fullUser" />
+
+        <activity
+            android:name=".ui.DatabaseActivity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|screenSize|uiMode|density|fontScale"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ui.PluginManagerActivity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|screenSize|uiMode|density|fontScale" />
+
+        <activity
+            android:name=".ui.ResourceManagerActivity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|screenSize|uiMode|density|fontScale" />
+
+        <activity
+            android:name=".ui.MapPropertiesActivity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|screenSize|uiMode|density|fontScale"
+            android:windowSoftInputMode="adjustResize" />
+
+    </application>
+</manifest>

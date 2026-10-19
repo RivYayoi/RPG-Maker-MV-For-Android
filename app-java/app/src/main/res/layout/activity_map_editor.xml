@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  PC-style Main Window (landscape / tablet).
+
+  Layout mirrors the editor's own manual screenshot
+  Help/inc/img/01_03_img01.png exactly:
+
+     (1) horizontal menu bar      File Edit Mode Draw Scale Tools Game Help
+     (2) horizontal toolbar        icon row
+     (3) tile palette  ┐
+     (4) map list      ├ left column
+     (5) map view      ┘ right, fills the rest
+     (6) status bar    across the bottom
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg"
+    android:fitsSystemWindows="false">
+
+    <!-- (1) Menu Bar -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg2"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/menuBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp" />
+    </HorizontalScrollView>
+
+    <!-- (2) Toolbar -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg3"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/toolBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp" />
+    </HorizontalScrollView>
+
+    <!-- content: left column (3)+(4) | map view (5) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <!-- left column -->
+        <LinearLayout
+            android:layout_width="@dimen/pc_left_panel_width"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:orientation="vertical"
+            android:background="@color/bg2">
+
+            <!-- (3) Tile Palette -->
+            <com.rmmv.editor.ui.TilePaletteView
+                android:id="@+id/palette"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- A / B / R tabs -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:background="@color/bg2"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp">
+
+                <Button android:id="@+id/tabA" style="@style/PcTabBtn" android:text="A" />
+                <Button android:id="@+id/tabB" style="@style/PcTabBtn" android:text="B" />
+                <Button android:id="@+id/tabR" style="@style/PcTabBtn" android:text="R" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line" />
+
+            <!-- (4) Map List -->
+            <com.rmmv.editor.ui.MapListPanel
+                android:id="@+id/mapList"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/line" />
+
+        <!-- (5) Map View -->
+        <com.rmmv.editor.ui.MapCanvasView
+            android:id="@+id/canvas"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/canvas_bg" />
+    </LinearLayout>
+
+    <!-- (6) Status Bar -->
+    <LinearLayout
+        android:id="@+id/statusBar"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/bg3">
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textColor="@color/fg"
+            android:textSize="11sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:fontFamily="monospace" />
+
+        <View android:layout_width="1dp" android:layout_height="14dp" android:background="@color/line" />
+
+        <TextView
+            android:id="@+id/statusMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/fg_dim"
+            android:textSize="11sp"
+            android:maxLines="1" />
+
+        <View android:layout_width="1dp" android:layout_height="14dp" android:background="@color/line" />
+
+        <TextView
+            android:id="@+id/zoom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/fg_dim"
+            android:textSize="11sp" />
+
+        <View android:layout_width="1dp" android:layout_height="14dp" android:background="@color/line" />
+
+        <TextView
+            android:id="@+id/statusTileset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="end"
+            android:paddingEnd="8dp"
+            android:textColor="@color/fg_dim"
+            android:textSize="11sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+    </LinearLayout>
+</LinearLayout>

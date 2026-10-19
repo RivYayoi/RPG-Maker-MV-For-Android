@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- simple map glyph -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,34 L46,29 L46,74 L30,79 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.82"
+        android:pathData="M49,29 L62,34 L62,79 L49,74 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.64"
+        android:pathData="M65,34 L78,30 L78,74 L65,79 Z" />
+    <path
+        android:fillColor="#2F6FE0"
+        android:pathData="M56,44 m-6,0 a6,6 0 1,0 12,0 a6,6 0 1,0 -12,0" />
+</vector>

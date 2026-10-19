@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#FF12151C</color>
+    <color name="bg2">#FF1A1F2B</color>
+    <color name="bg3">#FF232A3A</color>
+    <color name="line">#FF313A4D</color>
+    <color name="fg">#FFE8ECF5</color>
+    <color name="fg_dim">#FF93A0B8</color>
+    <color name="accent">#FF4A8CFF</color>
+    <color name="accent_dark">#FF2F6FE0</color>
+    <color name="danger">#FFE2564D</color>
+    <color name="ok">#FF46B978</color>
+    <color name="canvas_bg">#FF0A0C12</color>
+    <color name="on_accent">#FFFFFFFF</color>
+</resources>
+

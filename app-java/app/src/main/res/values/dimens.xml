@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Width of the PC-style left column (tile palette + map list).
+      Portrait keeps it narrow so the Map View still has room; landscape and
+      tablets get the wider, desktop-like column.
+    -->
+    <dimen name="pc_left_panel_width">150dp</dimen>
+    <dimen name="pc_status_height">24dp</dimen>
+    <dimen name="pc_menu_text_size">13sp</dimen>
+    <dimen name="pc_tool_icon_size">30dp</dimen>
+    <dimen name="pc_palette_cell">32dp</dimen>
+</resources>

@@ -1,0 +1,406 @@
+{
+  "root": "C:\\Program Files (x86)\\KADOKAWA\\RPGMV",
+  "scannedFiles": 204,
+  "categories": {
+    "node_core": {
+      "totalHits": 29,
+      "files": 2
+    },
+    "nw_api": {
+      "totalHits": 5,
+      "files": 2
+    },
+    "path_assumptions": {
+      "totalHits": 41,
+      "files": 5
+    },
+    "ipc_boundary": {
+      "totalHits": 0,
+      "files": 0
+    }
+  },
+  "results": {
+    "node_core": [
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 3316,
+        "match": "process.cwd"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 3330,
+        "match": "process.cwd"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 3634,
+        "match": "process.env"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 3635,
+        "match": "process.argv"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 3637,
+        "match": "process.versions"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 3653,
+        "match": "process.cwd"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 18586,
+        "match": "require('path')"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 22257,
+        "match": "require('path')"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 27361,
+        "match": "require('url')"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 31828,
+        "match": "require('path')"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 32602,
+        "match": "require('path')"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 33153,
+        "match": "require('path')"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 33261,
+        "match": "require('path')"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 33396,
+        "match": "require('path')"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 33491,
+        "match": "require('path')"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 36014,
+        "match": "require('path')"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 36379,
+        "match": "require('url')"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 37909,
+        "match": "require('path')"
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_managers.js",
+        "line": 608,
+        "match": "require('fs')"
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_managers.js",
+        "line": 635,
+        "match": "require('fs')"
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_managers.js",
+        "line": 651,
+        "match": "require('fs')"
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_managers.js",
+        "line": 675,
+        "match": "require('fs')"
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_managers.js",
+        "line": 686,
+        "match": "require('fs')"
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_managers.js",
+        "line": 696,
+        "match": "require('fs')"
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_managers.js",
+        "line": 705,
+        "match": "require('fs')"
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_managers.js",
+        "line": 710,
+        "match": "require('fs')"
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_managers.js",
+        "line": 715,
+        "match": "require('fs')"
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_managers.js",
+        "line": 756,
+        "match": "require('path')"
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_managers.js",
+        "line": 1876,
+        "match": "process.platform"
+      }
+    ],
+    "nw_api": [
+      {
+        "modulePath": "NewData\\js\\rpg_core.js",
+        "line": 195,
+        "match": "nw.App"
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_core.js",
+        "line": 195,
+        "match": "nw.App"
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_core.js",
+        "line": 3211,
+        "match": "gui."
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_managers.js",
+        "line": 1875,
+        "match": "gui."
+      },
+      {
+        "modulePath": "NewData\\js\\rpg_managers.js",
+        "line": 1877,
+        "match": "gui."
+      }
+    ],
+    "path_assumptions": [
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 38,
+        "match": "C:\\Python34."
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 42,
+        "match": "C:\\Python34 where Python was installed so that Python commands will be easier to use."
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 46,
+        "match": "C:\\Python34\\"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 48,
+        "match": "C:\\Python34\\"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 71,
+        "match": "C:\\Program Files\\Java\\jdk1.8.0_51."
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 71,
+        "match": "Program Files"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 74,
+        "match": "C:\\Program Files\\Java\\jdk1.8.0_51"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 74,
+        "match": "Program Files"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 77,
+        "match": "%JAVA_HOME%"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 79,
+        "match": "%JAVA_HOME%"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 101,
+        "match": "C:\\apache-ant-1.9.6"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 104,
+        "match": "%ANT_HOME%"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 106,
+        "match": "%ANT_HOME%"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 145,
+        "match": "C:\\android-sdk\\"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 146,
+        "match": "C:\\android-sdk\\tools\\"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 147,
+        "match": "C:\\android-sdk\\platform-tools\\"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 257,
+        "match": "C:\\crosswalk-10.39.235.16\\make_apk.py --package"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 336,
+        "match": "C:\\crosswalk-10.39.235.16\\make_apk.py --package"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_05.html",
+        "line": 336,
+        "match": "C:\\Users\\IEUser\\Desktop\\sample.keystore --keystore-alias"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_06.html",
+        "line": 370,
+        "match": "/Users/"
+      },
+      {
+        "modulePath": "Help\\page\\01_11_08.html",
+        "line": 113,
+        "match": "C:\\Windows\\System32\\drivers\\etc"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi-picture.js",
+        "line": 36,
+        "match": "%SPRITE_UNIFORMS%"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi-picture.js",
+        "line": 37,
+        "match": "%SPRITE_CODE%"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi-picture.js",
+        "line": 37,
+        "match": "%SPRITE_UNIFORMS%"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi-picture.js",
+        "line": 38,
+        "match": "%SPRITE_CODE%"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi-picture.js",
+        "line": 46,
+        "match": "%SPRITE_UNIFORMS%"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi-picture.js",
+        "line": 46,
+        "match": "%SPRITE_CODE%"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi-picture.js",
+        "line": 56,
+        "match": "%SPRITE_UNIFORMS%"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi-picture.js",
+        "line": 56,
+        "match": "%SPRITE_CODE%"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi-picture.js",
+        "line": 84,
+        "match": "%SPRITE_UNIFORMS%"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi-picture.js",
+        "line": 84,
+        "match": "%SPRITE_CODE%"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi-picture.js",
+        "line": 85,
+        "match": "%SPRITE_UNIFORMS%"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi-picture.js",
+        "line": 85,
+        "match": "%SPRITE_CODE%"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi-picture.js",
+        "line": 100,
+        "match": "%SPRITE_UNIFORMS%"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi-picture.js",
+        "line": 100,
+        "match": "%SPRITE_CODE%"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 3272,
+        "match": "c:\\"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 3316,
+        "match": "process.cwd"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 3330,
+        "match": "process.cwd"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 3653,
+        "match": "process.cwd"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 33298,
+        "match": "m:\\r\\n https"
+      },
+      {
+        "modulePath": "NewData\\js\\libs\\pixi.js",
+        "line": 33298,
+        "match": "t:\\r\\n \\r\\n "
+      }
+    ],
+    "ipc_boundary": []
+  }
+}

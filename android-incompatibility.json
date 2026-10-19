@@ -1,0 +1,293 @@
+{
+  "$schema": "./android-incompatibility.schema.json",
+  "generatedBy": "Phase 1 static boundary analysis (REA + targeted source verification)",
+  "target": {
+    "editorInstallDir": "C:\\Program Files (x86)\\KADOKAWA\\RPGMV",
+    "editorExecutable": "RPGMV.exe",
+    "editorExecutableSha256": "1b7d685fd302505b104f51cc539e2d6c997b5164d4a6a55e745283536503d281",
+    "editorExecutableFormat": "pe32 / x86",
+    "installTreeSha256": "62e5a0dcaa0ed9cabe85d81957c5787d63a7f5daca7135f8c519db9115fd71da",
+    "installTreeFormat": "directory",
+    "jsFilesScanned": 204,
+    "lastModifiedOriginals": false
+  },
+
+  "headlineFinding": {
+    "verdict": "PREMISE_CORRECTION",
+    "severity": "blocking-scope-change",
+    "statement": "RPG Maker MV's EDITOR is not an NW.js application. It is a native Qt5/QML desktop application (RPGMV.exe, PE32/x86, QQmlApplicationEngine + 451 QtQuick string references). The NW.js bundles shipped in the install directory are the GAME PLAYER used for playtesting and deployment, not the editor.",
+    "consequence": "The task's planned port strategy (wrap editor www/ in a WebView and shim fs/path/nw) targets code that does not exist. There is no editor JavaScript to shim. The real, portable boundary is the RPG Maker MV ON-DISK PROJECT FORMAT, which this port reimplements against.",
+    "evidence": [
+      "RPGMV.exe ASCII scan: 'QtQuick' x451, 'QQmlApplicationEngine' x6, 'NewData' x898, 'rpg_managers' x0",
+      "Zero .qml files on disk => QML UI is embedded in RPGMV.exe as compiled Qt resources (qrc)",
+      "nwjs-win/package.json declares main=www/index.html but nwjs-win/www contains ONLY an icon/ directory",
+      "nwjs-win executable is named Game.exe; nwjs-win-test is game.exe with a chromedriver test hook",
+      "All 204 JS files resolve to NewData/js/ (game engine rpg_*.js + pixi libs), Help/inc/js/ (jQuery help viewer), or NW.js package.json manifests"
+    ]
+  },
+
+  "boundaries": [
+    {
+      "category": "1-node-core-modules",
+      "title": "Node.js core module dependencies",
+      "totalHits": 29,
+      "filesAffected": 2,
+      "inEditorUiCode": 0,
+      "records": [
+        {
+          "modulePath": "NewData/js/rpg_managers.js",
+          "api": "require('fs')",
+          "line": 608,
+          "occurrences": 9,
+          "lines": [608, 635, 651, 675, 686, 696, 705, 710, 715],
+          "enclosingFunction": "DataManager.makeBackupFile",
+          "guard": "DataManager.isLocalMode() === true",
+          "reachableFromEditor": false,
+          "risk": "可裁剪",
+          "riskEn": "prunable",
+          "reason": "Game-runtime save-file backup only (LZ-compressed .bak into save/). Not editor code. Explicitly out of scope per the task ('不移植游戏运行时').",
+          "androidReplacement": "REMOVE. Not ported. Android app never executes NewData/js/rpg_managers.js."
+        },
+        {
+          "modulePath": "NewData/js/rpg_managers.js",
+          "api": "require('path')",
+          "line": 756,
+          "occurrences": 1,
+          "enclosingFunction": "DataManager.localFilePath",
+          "guard": "DataManager.isLocalMode() === true",
+          "reachableFromEditor": false,
+          "risk": "可裁剪",
+          "riskEn": "prunable",
+          "reason": "Game save path resolution; joins against process.execPath.",
+          "androidReplacement": "REMOVE. Not ported."
+        },
+        {
+          "modulePath": "NewData/js/rpg_managers.js",
+          "api": "process.platform",
+          "line": 1876,
+          "occurrences": 1,
+          "enclosingFunction": "Utils.isMobileDevice / platform branch",
+          "guard": "typeof process !== 'undefined'",
+          "reachableFromEditor": false,
+          "risk": "可裁剪",
+          "riskEn": "prunable",
+          "reason": "Game runtime platform feature detection.",
+          "androidReplacement": "REMOVE. Not ported."
+        },
+        {
+          "modulePath": "NewData/js/libs/pixi.js",
+          "api": "process.env / process.* feature detection",
+          "line": 0,
+          "occurrences": 18,
+          "enclosingFunction": "PixiJS bootstrap / feature flags",
+          "guard": "typeof process !== 'undefined'",
+          "reachableFromEditor": false,
+          "risk": "可裁剪",
+          "riskEn": "prunable",
+          "reason": "Third-party renderer bundled for the GAME runtime. Editor does not use Pixi.",
+          "androidReplacement": "REMOVE. Not ported."
+        }
+      ]
+    },
+
+    {
+      "category": "2-nwjs-desktop-api",
+      "title": "NW.js desktop API dependencies",
+      "totalHits": 5,
+      "filesAffected": 2,
+      "inEditorUiCode": 0,
+      "records": [
+        {
+          "modulePath": "NewData/js/rpg_core.js",
+          "api": "nw.App",
+          "line": 195,
+          "occurrences": 2,
+          "enclosingFunction": "Utils.isOptionValid",
+          "guard": "typeof nw !== 'undefined' && nw.App.argv.length > 0",
+          "reachableFromEditor": false,
+          "risk": "可裁剪",
+          "riskEn": "prunable",
+          "reason": "Already typeof-guarded: on a non-NW host the expression short-circuits and returns 0. Evidence that NW usage in this codebase is defensive, not load-bearing. Game runtime only.",
+          "androidReplacement": "REMOVE. Not ported."
+        },
+        {
+          "modulePath": "NewData/js/rpg_core.js",
+          "api": "gui.*",
+          "line": 3211,
+          "occurrences": 1,
+          "enclosingFunction": "PixiJS gui plugin hook",
+          "guard": "n/a (third-party plugin)",
+          "reachableFromEditor": false,
+          "risk": "可裁剪",
+          "riskEn": "prunable",
+          "reason": "Game runtime Pixi GUI plugin stub.",
+          "androidReplacement": "REMOVE. Not ported."
+        },
+        {
+          "modulePath": "NewData/js/rpg_managers.js",
+          "api": "gui.*",
+          "line": 1875,
+          "occurrences": 2,
+          "enclosingFunction": "Utils.isMobileDevice (regex false-positive on 'gui.')",
+          "guard": "n/a",
+          "reachableFromEditor": false,
+          "risk": "可裁剪",
+          "riskEn": "prunable",
+          "reason": "Regex false positive: the token 'gui.' is a substring of a mobile UA detection string, not an NW.js call.",
+          "androidReplacement": "REMOVE. Not ported."
+        }
+      ],
+      "note": "ZERO occurrences of nw.Window, nw.Menu, nw.Shell, nw.Clipboard, nw.Notification, nw.Tray, nw.Storage, nw.Utils in the entire install tree. The editor's native window/menu system is Qt/QML, not NW.js, so those APIs are structurally absent rather than merely unreachable."
+    },
+
+    {
+      "category": "3-native-path-assumptions",
+      "title": "Native filesystem path assumptions",
+      "totalHits": 41,
+      "filesAffected": 5,
+      "inEditorUiCode": 0,
+      "records": [
+        {
+          "modulePath": "Help/page/01_11_05.html",
+          "api": "Windows drive path literals (C:\\...)",
+          "line": 0,
+          "occurrences": 19,
+          "guard": "n/a (static documentation prose)",
+          "reachableFromEditor": false,
+          "risk": "可裁剪",
+          "riskEn": "prunable",
+          "reason": "Help manual text showing Windows folder locations to the user.",
+          "androidReplacement": "REWRITE as in-app help text describing Android app-private storage (/data/data/<pkg>/files/)."
+        },
+        {
+          "modulePath": "NewData/js/libs/pixi-picture.js",
+          "api": "path-like string literals / __dirname-style assumptions",
+          "line": 0,
+          "occurrences": 14,
+          "guard": "typeof process !== 'undefined'",
+          "reachableFromEditor": false,
+          "risk": "可裁剪",
+          "riskEn": "prunable",
+          "reason": "Third-party image loader in the game runtime.",
+          "androidReplacement": "REMOVE. Not ported."
+        },
+        {
+          "modulePath": "NewData/js/libs/pixi.js",
+          "api": "path-like string literals",
+          "line": 0,
+          "occurrences": 6,
+          "guard": "typeof process !== 'undefined'",
+          "reachableFromEditor": false,
+          "risk": "可裁剪",
+          "riskEn": "prunable",
+          "reason": "Third-party renderer in the game runtime.",
+          "androidReplacement": "REMOVE. Not ported."
+        },
+        {
+          "modulePath": "RPGMV.exe (compiled, not source-scannable)",
+          "api": "process.execPath / process.cwd() / %APPDATA% / __dirname assumptions",
+          "line": 0,
+          "occurrences": null,
+          "guard": "Qt QStandardPaths / QDir::currentPath",
+          "reachableFromEditor": true,
+          "risk": "阻断",
+          "riskEn": "blocking",
+          "reason": "The editor is native Qt and resolves user data via Qt QStandardPaths (AppData on Windows). This code is compiled into RPGMV.exe, has no JS surface, and cannot be shimmed from JavaScript. This is the genuine Android-incompatible boundary.",
+          "androidReplacement": "REPLACE with Capacitor Filesystem over Android app-private storage: Directory.Documents for the project root, Directory.Data for settings/cache. No MANAGE_EXTERNAL_STORAGE and no runtime permission needed for the MVP, because all writes stay inside /data/data/<pkg>/files/."
+        }
+      ]
+    },
+
+    {
+      "category": "4-ipc-renderer-boundary",
+      "title": "IPC / renderer process boundary",
+      "totalHits": 0,
+      "filesAffected": 0,
+      "inEditorUiCode": 0,
+      "records": [],
+      "note": "ZERO occurrences of ipcRenderer, ipcMain, postMessage, window.require, or electron across all 204 JS files. There is no main-process/renderer-process split anywhere in the install tree because there is no NW.js editor process. The editor is single-process Qt/QML; its renderer<->engine coupling is in-process QML property bindings and C++ signals, which are not observable from or controllable by a WebView."
+    }
+  ],
+
+  "actualPortableBoundary": {
+    "id": "MV-PROJECT-FORMAT",
+    "severity": "blocking",
+    "description": "Because the editor UI cannot be shimmed, the portable contract is the RPG Maker MV project format. The Android editor reimplements this contract so that projects round-trip with the desktop editor in both directions.",
+    "authoritativeSource": "C:\\Program Files (x86)\\KADOKAWA\\RPGMV\\NewData\\ (the editor's own new-project scaffold, copied verbatim when the desktop editor creates a project)",
+    "verifiedLayout": {
+      "root": "<Project>/",
+      "entries": [
+        "package.json        - NW.js manifest {name,main:'index.html',js-flags:'--expose-gc',window:{title,toolbar,width:624,height,icon}}",
+        "index.html          - game bootstrap (loads js/libs/*.js then js/rpg_*.js then js/plugins.js then js/main.js)",
+        "js/rpg_core.js      - engine core (244396 bytes)",
+        "js/rpg_managers.js  - data managers (83985 bytes)",
+        "js/rpg_objects.js   - game objects incl. Game_Map (304315 bytes)",
+        "js/rpg_scenes.js    - scenes (81404 bytes)",
+        "js/rpg_sprites.js   - sprites (80558 bytes)",
+        "js/rpg_windows.js   - windows (182643 bytes)",
+        "js/plugins.js       - plugin registry",
+        "js/libs/*.js        - pixi.js, pixi-tilemap.js, pixi-picture.js, fpsmeter.js, lz-string.js",
+        "data/System.json, Actors.json, Classes.json, Skills.json, Items.json, Weapons.json, Armors.json, Enemies.json, Troops.json, States.json, Animations.json, Tilesets.json, CommonEvents.json, MapInfos.json, MapXXX.json",
+        "img/{tilesets,characters,enemies,faces,battlebacks1,battlebacks2,parallaxes,system,titles1,titles2,animations,sv_actors,sv_enemies}",
+        "audio/{bgm,bgs,me,se}",
+        "fonts/gamefont.css + mplus-1m-regular.ttf",
+        "icon/icon.png"
+      ]
+    },
+    "verifiedMapJsonSchema": {
+      "file": "data/MapXXX.json (XXX zero-padded to 3 digits)",
+      "keys": ["autoplayBgm","autoplayBgs","battleback1Name","battleback2Name","bgm","bgs","disableDashing","displayName","encounterList","encounterStep","height","note","parallaxLoopX","parallaxLoopY","parallaxName","parallaxShow","parallaxSx","parallaxSy","scrollType","specifyBattleback","tilesetId","width","data","events"],
+      "bgmShape": {"name":"","pan":0,"pitch":100,"volume":90},
+      "tileArrayIndexing": "data[(z * height + y) * width + x]  -- 4 layers z=0..3, row-major within each layer",
+      "tileArrayLength": "width * height * 4",
+      "tileIdZeroMeans": "empty cell",
+      "evidence": "NewData/js/rpg_objects.js:5929 Game_Map.prototype.tileId"
+    },
+    "verifiedMapInfosSchema": {
+      "file": "data/MapInfos.json",
+      "shape": "Array indexed by mapId; index 0 is null; each entry {id,expanded,name,order,parentId,scrollX,scrollY}",
+      "observedDefault": "MapInfos.json = [null, {\"id\":1,\"expanded\":false,\"name\":\"MAP001\",\"order\":1,\"parentId\":0,\"scrollX\":411.5,\"scrollY\":334}]"
+    },
+    "verifiedEventSchema": {
+      "file": "data/MapXXX.json -> events[]",
+      "shape": "Array indexed by eventId; index 0 is null; each entry {id,x,y,name,pages:[...]}",
+      "pageShape": "{condition:{...}, list:[{code,parameters,indent}], graphic:{name,index,blendMode,rotation,mirror,opacity}, moveType, moveSpeed, moveFrequency, moveRoute, opacity, blendMode, direction, trigger, span, independent, priority, ...}",
+      "observedDefault": "Map001.json events = [null, null]"
+    },
+    "verifiedTileIdEncoding": {
+      "source": "NewData/js/rpg_core.js:5273-5298",
+      "constants": {"TILE_ID_B":0,"TILE_ID_C":256,"TILE_ID_D":512,"TILE_ID_E":768,"TILE_ID_A5":1536,"TILE_ID_A1":2048,"TILE_ID_A2":2816,"TILE_ID_A3":4352,"TILE_ID_A4":5888,"TILE_ID_MAX":8192},
+      "isVisibleTile": "tileId > 0 && tileId < 8192",
+      "isAutotile": "tileId >= 2048",
+      "autotileKind": "Math.floor((tileId - 2048) / 48)   // 0..127",
+      "autotileShape": "(tileId - 2048) % 48             // 0..47",
+      "makeAutotileId": "2048 + kind * 48 + shape",
+      "normalTileSourceRect": {
+        "setNumber": "isTileA5(tileId) ? 4 : 5 + Math.floor(tileId / 256)",
+        "sx": "(Math.floor(tileId / 128) % 2 * 8 + tileId % 8) * 48",
+        "sy": "(Math.floor(tileId % 256 / 8) % 16) * 48"
+      },
+      "combinedTilesetCanvas": "1536 x 1536 px, composed as a 3x3 grid of the 9 tilesetNames 512x512 images (Tileset bitmap)",
+      "crossCheck": "Default NewData Map001.json contains tileId 2816, which is exactly TILE_ID_A2 -- confirms the encoding against shipped editor output."
+    },
+    "verifiedTilesetSchema": {
+      "file": "data/Tilesets.json",
+      "shape": "Array indexed by tilesetId; index 0 is null; entry {id,name,tilesetNames[9],mode,note,flags[1536],terrainData[162]}",
+      "modeMeaning": "0 = normal tileset (2x2 auto-tile quadrants), 1 = autotile-only (single 48x48 cell)",
+      "imageConvention": "img/tilesets/<tilesetNames[i]>.png, each 512x512, laid into a 3x3 1536x1536 canvas"
+    },
+    "risk": "需适配",
+    "androidReplacement": "Reimplemented in JavaScript against Capacitor Filesystem. Reads/writes the exact same JSON so desktop RPGMV.exe and the Android app can both open each other's projects."
+  },
+
+  "toolingNotes": {
+    "reaDeepProvider": "Ghidra/Hopper native providers are NOT installed on this host (rea doctor capability probe shows only rea-artifact-graph, rea-dotnet-static, native-macos[unsupported]). Native RPGMV.exe code-level analysis was therefore unavailable.",
+    "reaPortableProvidersUsed": [
+      "rea.analyze_javascript_application (directory, 204 JS files, integrity_policy=record-and-continue)",
+      "rea.inspect_pe_resources (RPGMV.exe PE32 resource tree)",
+      "rea.open_binary (header identity + SHA-256 only)"
+    ],
+    "compensatingMethod": "Direct source verification of NewData/js/rpg_core.js and rpg_objects.js, which is the editor's own shipped engine source and is the authoritative statement of the on-disk format.",
+    "cliNote": "npx rea-agents@latest was unreachable (npm proxy 127.0.0.1:7890 refused connections). Reached the same REA engine through the rea MCP server instead."
+  }
+}

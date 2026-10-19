@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Landscape: the desktop-like proportions of the PC Main Window. -->
+    <dimen name="pc_left_panel_width">230dp</dimen>
+    <dimen name="pc_status_height">24dp</dimen>
+    <dimen name="pc_menu_text_size">13sp</dimen>
+    <dimen name="pc_tool_icon_size">32dp</dimen>
+    <dimen name="pc_palette_cell">40dp</dimen>
+</resources>

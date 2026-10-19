@@ -1,0 +1,45 @@
+{
+  "phase1": {
+    "steps": [
+      "createProject -> DeviceAccept",
+      "openProject -> {\"name\":\"DeviceAccept\",\"fileCount\":38}",
+      "composeTileset -> images=4 kind16ink=2304",
+      "placeTile -> 2816 readback=2816",
+      "createEvent -> #1 DeviceEvent",
+      "save -> {\"ms\":37,\"filesWritten\":2,\"map\":\"Map001.json\",\"at\":\"2026-10-19T10:47:04.089Z\"}"
+    ],
+    "storageMode": "capacitor-filesystem (app-private)",
+    "storagePath": "/data/data/com.rmmv.editor/files/Projects",
+    "mapSize": "20x15",
+    "dataLen": 1200,
+    "expectedLen": 1200,
+    "tilesetImagesDrawn": 4,
+    "tilesetCanvas": "2304x2304",
+    "kind16Ink": 2304,
+    "tileId": 2816,
+    "tileReadBack": 2816,
+    "rawIndex": 2816,
+    "saveReport": {
+      "ms": 37,
+      "filesWritten": 2,
+      "map": "Map001.json",
+      "at": "2026-10-19T10:47:04.089Z"
+    }
+  },
+  "phase2": {
+    "reopen": {
+      "name": "DeviceAccept",
+      "fileCount": 38
+    },
+    "reopenTile": 2816,
+    "reopenEvent": "DeviceEvent",
+    "reopenSize": "20x15",
+    "schemaMatch": true,
+    "missing": [],
+    "extra": [],
+    "projectsOnDevice": [
+      "DeviceAccept(1)"
+    ],
+    "ok": true
+  }
+}
