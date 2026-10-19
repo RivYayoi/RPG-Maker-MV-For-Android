@@ -1,6 +1,6 @@
 # RPG Maker MV 编辑器 → Android（**原生 Java 版**）
 
-**[简体中文](README.md)** | **[English](README_EN.md)**
+**[简体中文](README_CH.md)** | **[English](README.md)**
 
 > RPG Maker MV **编辑器**（制作工具）的原生 Java Android 移植，复刻 PC 端主窗口与其工程文件格式。
 
