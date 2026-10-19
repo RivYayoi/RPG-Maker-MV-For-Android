@@ -1,13 +1,15 @@
 # RPG Maker MV 编辑器 → Android（**原生 Java 版**）
 
-> A native-Java Android port of the **RPG Maker MV editor** (the authoring tool),
-> reproducing the PC editor's Main Window and its RPG Maker MV project format.
+**[简体中文](README.md)** | **[English](README_EN.md)**
 
-**产物**：`dist/rmmv-editor-native-debug.apk`（11.66 MB）
-SHA-256 `F4BF03B812FE6D3ADD8E43AAF22D2914538A2596F844CB046C46F2522FEC5493`
+> RPG Maker MV **编辑器**（制作工具）的原生 Java Android 移植，复刻 PC 端主窗口与其工程文件格式。
+
+**下载**：[Release v1.0.0](https://github.com/RivYayoi/RPG-Maker-MV-For-Android/releases/tag/v1.0.0) ·
+`RPGMakerMVEditor-Android-1.0.0.apk`（10.71 MB）
+SHA-256 `d2b1eacbe853b0f22f5a237af5ff59fc2acf43d1313208a8e79caf1fbf628e72`
 
 ```bash
-adb install -r -t dist\rmmv-editor-native-debug.apk
+adb install -r -t RPGMakerMVEditor-Android-1.0.0.apk
 ```
 
 | | |
@@ -63,7 +65,7 @@ RPG Maker MV 的**编辑器不是 NW.js 应用，而是 Qt5/QML 原生桌面程�
 
 `RPGMV.exe` 含 `QtQuick` ×451、`QQmlApplicationEngine` ×6；`nwjs-win/` 里的可执行文件叫 `Game.exe`，`www/` 里只有一个 `icon/` 目录 —— 那是**游戏播放器**。
 
-所以"套壳 + fs/nw shim"这条路没有可移植的对象。可移植的边界是 **RPG Maker MV 工程文件格式**，本项目用 Java 重新实现了它。详见 [`android-incompatibility.json`](android-incompatibility.json)。
+所以"套壳 + fs/nw shim"这条路没有可移植的对象。可移植的边界是 **RPG Maker MV 工程文件格式**，本项目用 Java 重新实现了它。完整证据见 [`android-incompatibility.json`](android-incompatibility.json)。
 
 ---
 
@@ -94,7 +96,7 @@ RPG Maker MV 的**编辑器不是 NW.js 应用，而是 Qt5/QML 原生桌面程�
 | `values-land/`（横屏） | **230dp** | 40dp | 13sp | 32dp |
 | `values-sw600dp/`（平板） | **270dp** | 44dp | 14sp | 36dp |
 
-横屏下左栏 633px（5 列图块），竖屏 413px（4 列），均为桌面端比例。
+实测：横屏左栏 633px（5 列图块），竖屏 413px（4 列），均为桌面端比例。
 
 **关键点**：`configChanges` 故意**不**包含 `orientation|screenSize`，让 Activity 在旋转时重建，
 否则 `values-land` 不会重新解析（这是实测发现：旋转后左栏仍是 413px）。旋转时用
@@ -187,7 +189,8 @@ NewData/js/rpg_objects.js:5929      data[(z*height + y)*width + x]
 
 ```
 RPG-Maker-MV-For-Android/
-├── README.md
+├── README.md                    ← 本文件（中文，GitHub 默认主页）
+├── README_EN.md                 English version
 ├── LICENSE
 ├── android-incompatibility.json     REA 边界图（四类硬边界 + 真实可移植边界）
 ├── app-java/                        纯 Java Gradle 工程（产品本体）
@@ -208,6 +211,7 @@ RPG-Maker-MV-For-Android/
 │   │   └── drawable/                17 个自绘矢量图标 + 按钮背景
 │   └── app/src/main/assets/template/  MV 脚手架（由 scripts/fetch-template.mjs 生成）
 ├── scripts/fetch-template.mjs       从本地 RPG Maker MV 安装取出脚手架
+├── scripts/publish-release.mjs       创建 GitHub Release 并上传 APK
 ├── analysis/                        证据脚本（边界扫描、真机验收）
 ├── evidence/                        真机截图
 ├── docs/                            功能支持矩阵 / 兼容层设计 / logcat 记录
