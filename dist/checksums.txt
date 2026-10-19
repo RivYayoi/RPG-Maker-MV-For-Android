@@ -1,2 +1,2 @@
 RPGMakerMVEditor-Android-1.0.0.apk
-f4bf03b812fe6d3add8e43aaf22d2914538a2596f844cb046c46f2522fec5493
+d2b1eacbe853b0f22f5a237af5ff59fc2acf43d1313208a8e79caf1fbf628e72
